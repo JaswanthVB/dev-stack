@@ -23,24 +23,28 @@ export default function Home() {
               <div className="text-lg font-medium">Home </div>
             </div>
             </Link>
+
             <Link href="/aims">
             <div className="cursor-pointer flex items-center gap-4 p-6 bg-white rounded-lg shadow hover:shadow-md hover:bg-blue-50 transition">
               <div className="text-blue-600"> {/* <FaUserGraduate size={30} /> */}</div>
               <div className="text-lg font-medium">Aim </div>
             </div>
             </Link>
+
             <Link href="/goals">
             <div className="cursor-pointer flex items-center gap-4 p-6 bg-white rounded-lg shadow hover:shadow-md hover:bg-blue-50 transition">
               <div className="text-blue-600"> {/* <FaUserGraduate size={30} /> */}</div>
               <div className="text-lg font-medium">Goals</div>
             </div>
             </Link>
+
             <Link href="/teams">
             <div className="cursor-pointer flex items-center gap-4 p-6 bg-white rounded-lg shadow hover:shadow-md hover:bg-blue-50 transition">
               <div className="text-blue-600"> {/* <FaUserGraduate size={30} /> */}</div>
               <div className="text-lg font-medium">Teams</div>
             </div>
           </Link>
+          
         </section>
       </div>
     </main>
