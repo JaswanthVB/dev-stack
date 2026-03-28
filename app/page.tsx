@@ -133,7 +133,7 @@ export default function Home() {
                 <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">LinkedIn</span>
               </a>
 
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-indigo-500 transition-all group">
+              <a href="https://discord.gg/83bkYQW5" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-indigo-500 transition-all group">
                 <FaDiscord size={28} className="text-indigo-500 group-hover:scale-110 transition-transform" />
                 <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">Discord</span>
               </a>
