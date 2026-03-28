@@ -14,6 +14,7 @@ import {
   FaCodeBranch 
 } from 'react-icons/fa';
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 pt-32 pb-20 px-6">
