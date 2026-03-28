@@ -20,5 +20,5 @@ export default function RootLayout({
 }
 export const metadata = {
   title: 'Dev-Stack Vault',
-  description: 'Welcome to the Dev-Stack Vault for managing development projects and resources efficiently.',
+  description: 'Welcome to Dev-Stack Vault for managing development projects and resources efficiently. and resources efficiently.',
 };

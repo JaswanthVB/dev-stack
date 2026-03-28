@@ -57,7 +57,7 @@ export default function Home() {
               High-performance systems for Schools, Hospitals, and Restaurants 
               integrated with real-time database management.
             </p>
-            <Link href="/projects/web" className="inline-flex items-center gap-2 text-blue-400 font-bold hover:gap-4 transition-all">
+            <Link href="/management" className="inline-flex items-center gap-2 text-blue-400 font-bold hover:gap-4 transition-all">
               Browse Software <FaArrowRight />
             </Link>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
             <p className="text-zinc-400 mb-6">
               Embedded systems and IoT solutions powered by custom circuits.
             </p>
-            <Link href="/products/embedded" className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:gap-4 transition-all">
+            <Link href="/electronics" className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:gap-4 transition-all">
               View Gear <FaArrowRight />
             </Link>
           </div>
@@ -109,7 +109,7 @@ export default function Home() {
             <div className="lg:col-span-2 p-8 rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
               <h2 className="text-3xl font-black mb-4 uppercase tracking-tight">The Developer</h2>
               <p className="text-zinc-400 leading-relaxed mb-6">
-                I&apos;m Jaswanth Varma Bolisetty,s a Full-Stack Developer and Electronics enthusiast specializing in building 
+                I&apos;m Jaswanth Varma Bolisetty,anvit are a Full-Stack Developers and Electronics enthusiast specializing in building 
                 scalable management systems and IoT solutions. Currently architecting a 
                 centralized hub using <span className="text-blue-400">Next.js</span>, 
                 <span className="text-emerald-400"> Flask</span>, and 
@@ -149,8 +149,7 @@ export default function Home() {
           <div className="mt-20 text-center">
             <p className="text-zinc-600 text-[10px] font-medium tracking-[0.2em] uppercase">
               © 2026 DevStack Vault • Built with Passion
-              This is built by Jaswanth Varma Bolisetty
-            </p>
+              This is built by Jaswanth Varma Bolisetty,Anvit            </p>
           </div>
         </section>
       </div>
