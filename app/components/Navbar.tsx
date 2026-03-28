@@ -19,14 +19,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Smooth scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -37,7 +35,6 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // FUTURE: Replace these arrays with data fetched from your Flask/Postgres API
   const managementSystems = [
     { name: 'School Portal', href: '/web/school', icon: <FaSchool className="text-blue-400" /> },
     { name: 'Hospital HMS', href: '/web/hospital', icon: <FaHospital className="text-rose-400" /> },
@@ -61,7 +58,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Brand Identity */}
+        {/* Brand */}
         <Link href="/" className="group flex items-center gap-3">
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
@@ -77,30 +74,32 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Navigation Section */}
+        {/* Navigation */}
         <div className="hidden lg:flex items-center gap-2">
           <NavLink href="/" label="Overview" />
           
-          {/* Dynamic Dropdown: Web Systems */}
           <NavDropdown 
             label="Management" 
             isOpen={activeDropdown === 'web'} 
             onClick={() => setActiveDropdown(activeDropdown === 'web' ? null : 'web')}
             items={managementSystems}
+            footerLabel="View Management Hub"
+            footerHref="/management" 
           />
 
-          {/* Dynamic Dropdown: Hardware */}
           <NavDropdown 
             label="Electronics" 
             isOpen={activeDropdown === 'hardware'} 
             onClick={() => setActiveDropdown(activeDropdown === 'hardware' ? null : 'hardware')}
             items={electronicsProjects}
+            footerLabel="View Electronics Hub"
+            footerHref="/electronics" 
           />
 
           <NavLink href="/mission" label="Mission" />
         </div>
 
-        {/* Status Indicator (Purely for Gen-Z Classy Aesthetic) */}
+        {/* Right Side UI */}
         <div className="flex items-center gap-4">
           <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full">
             <span className="relative flex h-2 w-2">
@@ -119,7 +118,6 @@ export default function Navbar() {
   );
 }
 
-// Sub-components for cleaner code
 function NavLink({ href, label }: { href: string, label: string }) {
   return (
     <Link href={href} className="px-4 py-2 text-zinc-400 hover:text-zinc-100 text-sm font-semibold transition-colors">
@@ -128,7 +126,8 @@ function NavLink({ href, label }: { href: string, label: string }) {
   );
 }
 
-function NavDropdown({ label, isOpen, onClick, items }: any) {
+// Fixed Dropdown with dynamic footer
+function NavDropdown({ label, isOpen, onClick, items, footerLabel, footerHref }: any) {
   return (
     <div className="relative">
       <button 
@@ -142,7 +141,7 @@ function NavDropdown({ label, isOpen, onClick, items }: any) {
       </button>
       
       {isOpen && (
-        <div className="absolute top-[calc(100%+15px)] right-0 w-72 bg-zinc-900/95 backdrop-blur-2xl border border-zinc-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-2 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="absolute top-[calc(100%+15px)] left-0 md:right-0 w-72 bg-zinc-900/95 backdrop-blur-2xl border border-zinc-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-2 animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="grid gap-1">
             {items.map((item: any) => (
               <Link key={item.name} href={item.href} className="flex items-center gap-4 p-3 rounded-xl hover:bg-zinc-800 group transition-all">
@@ -154,8 +153,11 @@ function NavDropdown({ label, isOpen, onClick, items }: any) {
             ))}
           </div>
           <div className="mt-2 p-2 border-t border-zinc-800/50">
-            <Link href="/projects" className="flex items-center justify-center gap-2 text-[10px] font-bold text-zinc-500 hover:text-emerald-500 uppercase tracking-widest transition-colors py-1">
-              <FaCode size={12}/> View All Sources
+            <Link 
+              href={footerHref} 
+              className="flex items-center justify-center gap-2 text-[10px] font-bold text-zinc-500 hover:text-emerald-500 uppercase tracking-widest transition-colors py-1"
+            >
+              <FaCode size={12}/> {footerLabel}
             </Link>
           </div>
         </div>
