@@ -23,14 +23,14 @@ export default function Home() {
         {/* HERO SECTION */}
         <section className="text-center mb-24">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-widest uppercase">
-            Powered by Flask & Postgres
+            Powered By DevBuilders
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
-            THE PROJECT VAULT
+            DEV STACK VAULT
           </h1>
           <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            A centralized ecosystem housing professional management systems, 
-            web architectures, and advanced electronics engineering.
+            We provide web applications and hardware solutions for the modern era 
+            and also with maintenance and long-term support.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
@@ -54,8 +54,7 @@ export default function Home() {
               <FaSchool className="text-blue-500" /> Web Management
             </h3>
             <p className="text-zinc-400 mb-6 max-w-md">
-              High-performance systems for Schools, Hospitals, and Restaurants 
-              integrated with real-time database management.
+              Comprehensive management solutions for modern businesses here are some templates and demos for each field.
             </p>
             <Link href="/management" className="inline-flex items-center gap-2 text-blue-400 font-bold hover:gap-4 transition-all">
               Browse Software <FaArrowRight />
@@ -68,7 +67,7 @@ export default function Home() {
               <FaMicrochip className="text-emerald-500" /> Hardware
             </h3>
             <p className="text-zinc-400 mb-6">
-              Embedded systems and IoT solutions powered by custom circuits.
+              We provide circuit design and embedded systems solutions which can be solved through contact.
             </p>
             <Link href="/electronics" className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:gap-4 transition-all">
               View Gear <FaArrowRight />
@@ -123,7 +122,7 @@ export default function Home() {
 
             {/* Social & Contact Grid */}
             <div className="grid grid-cols-2 gap-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-white transition-all group">
+              <a href="https://github.com/jaswanthVB" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-white transition-all group">
                 <FaGithub size={28} className="group-hover:scale-110 transition-transform" />
                 <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">Github</span>
               </a>
@@ -149,7 +148,7 @@ export default function Home() {
           <div className="mt-20 text-center">
             <p className="text-zinc-600 text-[10px] font-medium tracking-[0.2em] uppercase">
               © 2026 DevStack Vault • Built with Passion
-              This is built by Jaswanth Varma Bolisetty,Anvit            </p>
+                </p>
           </div>
         </section>
       </div>
