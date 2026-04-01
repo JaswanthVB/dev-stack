@@ -1,156 +1,111 @@
 'use client';
 
 import Link from 'next/link';
-import { 
-  FaHospital, 
-  FaUtensils, 
-  FaSchool, 
-  FaMicrochip, 
-  FaArrowRight, 
-  FaGithub, 
-  FaLinkedin, 
-  FaDiscord, 
-  FaEnvelope, 
-  FaCodeBranch 
-} from 'react-icons/fa';
-
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <main className="relative min-h-screen bg-[#0B121E] text-slate-400 overflow-hidden selection:bg-indigo-500/40">
+      
+      {/* ILLUMINATED BACKGROUND TEXTURE */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-indigo-600/20 rounded-full blur-[160px]"></div>
+        <div className="absolute bottom-[-10%] right-[10%] w-[50%] h-[50%] bg-blue-700/10 rounded-full blur-[140px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-10 pt-64 pb-32">
         
         {/* HERO SECTION */}
-        <section className="text-center mb-24">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-widest uppercase">
-            Powered By DevBuilders
+        <section className="mb-72">
+          <div className="inline-flex items-center gap-6 mb-16 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm">
+            <span className="text-[8px] font-black uppercase tracking-[0.6em] text-indigo-400">System Live</span>
+            <div className="w-[1px] h-3 bg-white/10"></div>
+            <span className="text-[8px] font-black uppercase tracking-[0.6em] text-slate-500">Operational Intelligence // 2026</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
-            DEV STACK VAULT
+
+          <h1 className="text-8xl md:text-[160px] font-black tracking-tighter text-white mb-20 leading-[0.75] uppercase">
+            Systems <br/> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-slate-100 to-indigo-900/50">Architect.</span>
           </h1>
-          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            We provide web applications and hardware solutions for the modern era 
-            and also with maintenance and long-term support.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-              Explore Projects
-            </button>
-            <button className="px-8 py-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-white font-bold rounded-xl transition-all">
-              Watch Demo
-            </button>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div className="md:col-span-6">
+              <p className="text-slate-300 text-xl md:text-2xl leading-[1.1] font-bold uppercase tracking-tight">
+                Engineering high-integrity software-hardware bridges for critical enterprise sectors.
+              </p>
+            </div>
+            <div className="md:col-span-6 flex flex-col items-start md:items-end justify-center">
+               <div className="flex gap-16">
+                  <div className="group cursor-default">
+                    <p className="text-[10px] font-black text-indigo-500/50 uppercase tracking-[0.5em] mb-4">Division 01</p>
+                    <Link href="/management" className="text-white font-black text-lg border-b-2 border-indigo-500/30 group-hover:border-white transition-all pb-1 uppercase tracking-[0.2em]">Software</Link>
+                  </div>
+                  <div className="group cursor-default">
+                    <p className="text-[10px] font-black text-indigo-500/50 uppercase tracking-[0.5em] mb-4">Division 02</p>
+                    <Link href="/electronics" className="text-white font-black text-lg border-b-2 border-indigo-500/30 group-hover:border-white transition-all pb-1 uppercase tracking-[0.2em]">Hardware</Link>
+                  </div>
+               </div>
+            </div>
           </div>
         </section>
 
-        {/* BENTO GRID SECTOR SELECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Card 1: Management */}
-          <div className="md:col-span-2 group relative p-8 rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/50 transition-all overflow-hidden">
-            <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:opacity-20 transition-opacity">
-              <FaSchool size={120} />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-              <FaSchool className="text-blue-500" /> Web Management
-            </h3>
-            <p className="text-zinc-400 mb-6 max-w-md">
-              Comprehensive management solutions for modern businesses here are some templates and demos for each field.
+        {/* CONTENT PREVIEW BENTO */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-8 relative group p-16 bg-white/[0.03] border border-white/10 rounded-[48px] overflow-hidden hover:bg-white/[0.06] transition-all duration-700">
+            <div className="absolute top-0 right-0 p-8 text-[120px] font-black text-white/[0.03] leading-none select-none italic uppercase">Dev</div>
+            
+            <h3 className="text-6xl font-black text-white mb-8 tracking-tighter uppercase">Cloud <br/> Protocols</h3>
+            <p className="text-slate-400 text-lg max-w-md font-medium leading-relaxed mb-12">
+              Proprietary ERP and HMS ecosystems built with high-availability synchronization for distributed enterprise environments.
             </p>
-            <Link href="/management" className="inline-flex items-center gap-2 text-blue-400 font-bold hover:gap-4 transition-all">
-              Browse Software <FaArrowRight />
+            <Link href="/management" className="inline-block px-12 py-4 bg-white text-[#0B121E] text-[10px] font-black uppercase tracking-[0.4em] rounded-full hover:bg-indigo-400 hover:text-white transition-all shadow-2xl">
+              Launch Environment
             </Link>
           </div>
 
-          {/* Card 2: Electronics */}
-          <div className="group relative p-8 rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 transition-all overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-              <FaMicrochip className="text-emerald-500" /> Hardware
-            </h3>
-            <p className="text-zinc-400 mb-6">
-              We provide circuit design and embedded systems solutions which can be solved through contact.
-            </p>
-            <Link href="/electronics" className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:gap-4 transition-all">
-              View Gear <FaArrowRight />
-            </Link>
-          </div>
-
-          {/* Small Feature Cards */}
-          <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center gap-4">
-            <div className="p-3 bg-red-500/10 rounded-xl text-red-500"><FaHospital size={24} /></div>
-            <div>
-              <div className="font-bold">Hospital HMS</div>
-              <div className="text-xs text-zinc-500">Live Database Sync</div>
-            </div>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center gap-4">
-            <div className="p-3 bg-orange-500/10 rounded-xl text-orange-500"><FaUtensils size={24} /></div>
-            <div>
-              <div className="font-bold">Restaurant POS</div>
-              <div className="text-xs text-zinc-500">Cloud Inventory</div>
-            </div>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center gap-4">
-            <div className="p-3 bg-yellow-500/10 rounded-xl text-yellow-500"><FaMicrochip size={24} /></div>
-            <div>
-              <div className="font-bold">IoT Dashboard</div>
-              <div className="text-xs text-zinc-500">Device Monitoring</div>
-            </div>
+          <div className="md:col-span-4 p-12 bg-gradient-to-br from-indigo-600/20 to-transparent border border-white/10 rounded-[48px] flex flex-col justify-between group hover:border-indigo-400/50 transition-all">
+             <div className="flex flex-col gap-3">
+                <span className="text-[9px] font-black text-indigo-400 uppercase tracking-[0.5em]">Lab Status</span>
+                <div className="h-[1px] w-8 bg-indigo-500/30"></div>
+                <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.5em]">Hardware Access // Online</span>
+             </div>
+             <div>
+                <h3 className="text-3xl font-black text-white mb-6 uppercase tracking-tighter">IoT & <br/> Circuitry</h3>
+                <p className="text-slate-400 text-[10px] font-black leading-relaxed mb-10 uppercase tracking-[0.2em]">
+                  Firmware engineering and multi-layer PCB architecture.
+                </p>
+                <Link href="/electronics" className="text-[10px] font-black text-white/50 uppercase tracking-[0.3em] group-hover:text-indigo-300 transition-colors">
+                  Specifications —
+                </Link>
+             </div>
           </div>
         </div>
 
-        {/* DEVELOPER & CONTACT SECTION - Now inside the max-w container */}
-        <section className="mt-32 pt-16 border-t border-zinc-800">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            {/* About Me Card */}
-            <div className="lg:col-span-2 p-8 rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
-              <h2 className="text-3xl font-black mb-4 uppercase tracking-tight">The Developer</h2>
-              <p className="text-zinc-400 leading-relaxed mb-6">
-                I&apos;m Jaswanth Varma Bolisetty,anvit are a Full-Stack Developers and Electronics enthusiast specializing in building 
-                scalable management systems and IoT solutions. Currently architecting a 
-                centralized hub using <span className="text-blue-400">Next.js</span>, 
-                <span className="text-emerald-400"> Flask</span>, and 
-                <span className="text-purple-400"> Postgres</span>.
-              </p>
-              <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
-                <span className="flex items-center gap-1"><FaCodeBranch /> Open to Collabs</span>
-                <span className="flex items-center gap-1"><FaCodeBranch /> Hardware Prototyping</span>
-              </div>
-            </div>
-
-            {/* Social & Contact Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <a href="https://github.com/jaswanthVB" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-white transition-all group">
-                <FaGithub size={28} className="group-hover:scale-110 transition-transform" />
-                <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">Github</span>
-              </a>
-
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500 transition-all group">
-                <FaLinkedin size={28} className="text-blue-500 group-hover:scale-110 transition-transform" />
-                <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">LinkedIn</span>
-              </a>
-
-              <a href="https://discord.gg/83bkYQW5" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-indigo-500 transition-all group">
-                <FaDiscord size={28} className="text-indigo-500 group-hover:scale-110 transition-transform" />
-                <span className="text-[10px] mt-2 font-bold uppercase text-zinc-500">Discord</span>
-              </a>
-
-              <a href="mailto:jaswanthvarmabolisetty@gmail.com" className="flex flex-col items-center justify-center p-6 rounded-2xl bg-emerald-500 text-zinc-950 hover:bg-emerald-400 transition-all group">
-                <FaEnvelope size={28} className="group-hover:rotate-12 transition-transform" />
-                <span className="text-[10px] mt-2 font-black uppercase">Email</span>
-              </a>
-            </div>
+        {/* STATUS FOOTER */}
+        <section className="mt-64 flex flex-col md:flex-row justify-between items-start md:items-center gap-20 border-t border-white/10 pt-20">
+          <div className="flex flex-col">
+            <p className="text-4xl font-black text-white tracking-tighter uppercase leading-none">
+              Solid <br/> <span className="text-indigo-500/40">State.</span>
+            </p>
+            <p className="text-[10px] font-black text-slate-600 uppercase tracking-[0.8em] mt-8">Legacy Industrial Systems // Est. 2026</p>
           </div>
 
-          {/* Footer Copyright */}
-          <div className="mt-20 text-center">
-            <p className="text-zinc-600 text-[10px] font-medium tracking-[0.2em] uppercase">
-              © 2026 DevStack Vault • Built with Passion
-                </p>
+          <div className="flex gap-20">
+            <a href="https://github.com/jaswanthVB" className="group flex flex-col gap-3">
+              <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.4em] group-hover:text-indigo-300 transition-colors">GitHub Repo</span>
+              <div className="h-[2px] w-4 bg-indigo-500/20 group-hover:w-full group-hover:bg-indigo-500 transition-all"></div>
+            </a>
+            <Link href="/collaborate" className="group flex flex-col gap-3">
+              <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.4em] group-hover:text-indigo-300 transition-colors">Inquiries</span>
+              <div className="h-[2px] w-4 bg-indigo-500/20 group-hover:w-full group-hover:bg-indigo-500 transition-all"></div>
+            </Link>
           </div>
         </section>
+
+        <div className="mt-40 text-center opacity-10">
+            <span className="text-[10px] font-black uppercase tracking-[4em] text-white">Solid_State_Archive</span>
+        </div>
       </div>
     </main>
   );

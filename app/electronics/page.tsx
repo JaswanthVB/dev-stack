@@ -1,136 +1,164 @@
 'use client';
 
-import { 
-  FaMicrochip, 
-  FaCogs, 
-  FaArrowRight, 
-  FaBroadcastTower, 
-  FaProjectDiagram,
-  FaMemory, // Replacement for FaCpu
-  FaCode // Replacement for FaTerminal
-} from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function ElectronicsPage() {
-  
+
   const projects = [
     {
+      id: "HW-01",
       title: "IoT Control Hub",
       slug: "iot",
-      description: "Smart infrastructure automation using ESP32 with real-time WebSocket telemetry and remote appliance control.",
-      icon: <FaBroadcastTower className="text-emerald-400" />,
+      description: "Smart infrastructure automation using ESP32 with real-time WebSocket telemetry and low-latency remote appliance control.",
       features: ["MQTT Protocol", "Real-time Dashboard", "Sensor Analytics"],
       status: "Operational",
-      accent: "border-emerald-500/20"
+      spec: "ESP32-WROOM",
+      isReady: false // Future template toggle
     },
     {
+      id: "HW-02",
       title: "Embedded Systems",
       slug: "embedded",
-      description: "Low-level C++ firmware development for ARM Cortex-M series focusing on RTOS and memory efficiency.",
-      icon: <FaMicrochip className="text-purple-400" />,
+      description: "Low-level C++ firmware development for ARM Cortex-M series focusing on RTOS scheduling and high-efficiency memory management.",
       features: ["RTOS Scheduling", "DMA Management", "Interrupt Handling"],
-      status: "In Development",
-      accent: "border-purple-500/20"
+      status: "Development",
+      spec: "ARM Cortex-M4",
+      isReady: false
     },
     {
+      id: "HW-03",
       title: "Circuit Design",
       slug: "circuits",
-      description: "High-speed PCB layout and multilayer hardware design with signal integrity analysis and EMI shielding.",
-      icon: <FaProjectDiagram className="text-amber-400" />,
+      description: "High-speed PCB layout and multilayer hardware design with signal integrity analysis and localized EMI shielding.",
       features: ["Multilayer PCB", "BOM Optimization", "Signal Integrity"],
-      status: "Beta Testing",
-      accent: "border-amber-500/20"
+      status: "Testing",
+      spec: "4-Layer Stackup",
+      isReady: false
     }
   ];
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <main className="relative min-h-screen bg-[#0B121E] text-slate-400 overflow-hidden selection:bg-blue-500/40">
+      
+      {/* NAVIGATION SPACE BUFFER 
+          Note: Ensure any future hardware detail templates use pt-32 or pt-48 
+          to clear the fixed Vault.sys navbar.
+      */}
+
+      {/* ATMOSPHERIC BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        <div className="absolute top-[-20%] right-[-10%] w-[70%] h-[70%] bg-blue-600/10 rounded-full blur-[160px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-10 pt-48 pb-32">
         
-        {/* Page Header */}
-        <header className="mb-16">
-          <div className="flex items-center gap-3 text-purple-500 font-bold text-xs uppercase tracking-widest mb-4">
-            <FaMicrochip /> Hardware Lab
+        {/* HEADER SECTION */}
+        <header className="mb-24 border-l border-blue-500/30 pl-10">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-[9px] font-black text-blue-400 uppercase tracking-[0.6em]">Hardware Protocol // Lab 03</span>
+            <div className="h-[1px] w-20 bg-white/10"></div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6">
-            Electronics <span className="text-zinc-500 italic">Hub</span>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8 uppercase leading-none">
+            Electronics <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-900/50">Lab.</span>
           </h1>
-          <p className="text-zinc-400 text-lg max-w-3xl leading-relaxed">
-            Explore advanced hardware engineering. Each project below is integrated with 
-            custom **Firmware**, **PCB Layouts**, and seamless **Cloud Synchronization**.
+          <p className="text-slate-400 text-lg max-w-2xl font-medium leading-relaxed uppercase text-[12px] tracking-widest">
+            Industrial hardware engineering. Integrating custom <span className="text-white">Firmware</span>, <span className="text-white">PCB Architecture</span>, and encrypted <span className="text-white">Telemetry</span>.
           </p>
         </header>
 
-        {/* Systems Grid */}
-        <div className="grid grid-cols-1 gap-8">
+        {/* PROJECT LISTING */}
+        <div className="grid grid-cols-1 gap-6">
           {projects.map((project) => (
             <div 
               key={project.slug} 
-              className={`group relative overflow-hidden bg-zinc-900/40 border ${project.accent} rounded-[2rem] p-8 md:p-12 transition-all hover:bg-zinc-900/60`}
+              className="group relative bg-white/[0.02] border border-white/5 rounded-[32px] p-10 md:p-14 overflow-hidden transition-all duration-500 hover:bg-white/[0.04] hover:border-blue-400/30"
             >
-              <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
+              <div className="relative z-10 flex flex-col md:flex-row justify-between gap-12">
                 
-                <div className="shrink-0 w-20 h-20 rounded-3xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-3xl shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                  {project.icon}
-                </div>
-
+                {/* Left: Component Details */}
                 <div className="flex-grow">
-                  <div className="flex items-center gap-4 mb-3">
-                    <h2 className="text-3xl font-bold tracking-tight">{project.title}</h2>
-                    <span className="px-3 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-[10px] font-black text-zinc-500 uppercase tracking-widest">
-                      {project.status}
+                  <div className="flex items-center gap-6 mb-8">
+                    <span className="text-[10px] font-black text-blue-400 font-mono tracking-widest border border-blue-400/20 px-3 py-1 rounded">
+                      {project.id}
+                    </span>
+                    <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">
+                      Lab Status: {project.status}
                     </span>
                   </div>
-                  <p className="text-zinc-400 mb-6 max-w-2xl">{project.description}</p>
                   
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter group-hover:text-blue-300 transition-colors">
+                    {project.title}
+                  </h2>
+                  <p className="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed font-medium">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
                     {project.features.map((feature) => (
-                      <span key={feature} className="text-[10px] font-bold px-3 py-1 bg-zinc-900 text-zinc-500 rounded-lg border border-zinc-800 uppercase tracking-tighter">
+                      <span key={feature} className="text-[9px] font-black px-4 py-2 bg-blue-500/5 text-slate-500 rounded-full border border-white/5 uppercase tracking-widest group-hover:border-blue-400/20 group-hover:text-slate-300 transition-all">
                         {feature}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  <Link 
-                    href={`/tech/${project.slug}`}
-                    className="inline-flex items-center gap-3 px-8 py-3 bg-white text-black rounded-xl font-black uppercase text-xs hover:bg-purple-500 hover:text-white transition-all group/btn shadow-xl"
-                  >
-                    View Project Documentation 
-                    <FaArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
-                  </Link>
+                {/* Right: Hardware Specs & Action */}
+                <div className="flex flex-col justify-between items-start md:items-end shrink-0 border-t md:border-t-0 md:border-l border-white/5 pt-10 md:pt-0 md:pl-16">
+                  <div className="text-left md:text-right mb-12">
+                    <p className="text-[9px] font-black text-slate-600 uppercase tracking-[0.5em] mb-2">System Core</p>
+                    <p className="text-white font-bold tracking-widest uppercase">{project.spec}</p>
+                  </div>
+
+                  {project.isReady ? (
+                    <Link 
+                      href={`/tech/${project.slug}`}
+                      className="inline-flex items-center px-10 py-5 bg-white text-[#0B121E] rounded-full font-black uppercase text-[10px] tracking-[0.4em] hover:bg-blue-500 hover:text-white transition-all shadow-2xl active:scale-95"
+                    >
+                      View Specs
+                    </Link>
+                  ) : (
+                    <div className="inline-flex items-center px-10 py-5 bg-white/5 text-slate-600 rounded-full font-black uppercase text-[10px] tracking-[0.4em] border border-white/5 cursor-not-allowed">
+                      <span className="w-2 h-2 bg-blue-900 rounded-full mr-3 animate-pulse shadow-[0_0_8px_rgba(30,58,138,0.8)]"></span>
+                      Coming Shortly
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <div className="absolute -bottom-10 -right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-[12rem] rotate-12 pointer-events-none">
-                {project.icon}
+              {/* Background ID branding */}
+              <div className="absolute -bottom-12 -right-12 text-[180px] font-black text-white/[0.02] select-none pointer-events-none uppercase italic tracking-tighter">
+                {project.id.split('-')[1]}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Hardware / Firmware Note */}
-        <footer className="mt-20 flex flex-col md:flex-row items-center justify-between p-10 rounded-3xl bg-purple-500/5 border border-purple-500/10 gap-8">
-          <div className="flex items-center gap-6">
-            <div className="p-4 rounded-2xl bg-zinc-900 text-purple-500">
-              <FaCogs size={30} />
+        {/* DIAGNOSTIC FOOTER */}
+        <footer className="mt-32 p-12 bg-blue-500/[0.03] border border-blue-500/10 rounded-[48px] flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="flex items-center gap-8">
+            <div className="w-16 h-16 rounded-2xl bg-[#0B121E] border border-blue-500/20 flex items-center justify-center overflow-hidden">
+               <div className="w-full h-[2px] bg-blue-500/50 animate-[bounce_3s_infinite] shadow-[0_0_15px_blue]"></div>
             </div>
             <div>
-              <h4 className="font-bold text-xl uppercase tracking-tighter">Hardware Architecture</h4>
-              <p className="text-zinc-500 text-sm">Industrial grade PCB design and firmware security protocols.</p>
+              <h4 className="text-white font-black uppercase tracking-tighter text-xl">Embedded Architecture</h4>
+              <p className="text-slate-500 text-xs font-black uppercase tracking-widest mt-1 italic">Real-time Telemetry // EMI Shielding // C++20</p>
             </div>
           </div>
-          <div className="flex gap-4">
-            <div className="flex flex-col items-center">
-              <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-1">Controller</span>
-              <div className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg font-mono text-xs text-blue-400 font-bold uppercase tracking-tighter">ESP32 / AVR</div>
+          
+          <div className="flex gap-8">
+            <div className="text-center">
+              <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">Controller</span>
+              <div className="mt-2 text-blue-400 font-bold tracking-widest text-xs uppercase">ESP32 / ARM</div>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-1">Memory</span>
-              <div className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg font-mono text-xs text-purple-400 font-bold uppercase tracking-tighter">SRAM / Flash</div>
+            <div className="w-[1px] h-10 bg-white/10"></div>
+            <div className="text-center">
+              <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">Memory</span>
+              <div className="mt-2 text-blue-400 font-bold tracking-widest text-xs uppercase">SRAM / Flash</div>
             </div>
           </div>
         </footer>
-
       </div>
     </main>
   );

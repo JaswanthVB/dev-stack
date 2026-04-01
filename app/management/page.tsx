@@ -1,136 +1,156 @@
 'use client';
 
-import { 
-  FaSchool, 
-  FaHospital, 
-  FaUtensils, 
-  FaArrowRight, 
-  FaDatabase, 
-  FaShieldAlt,
-  FaServer
-} from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function ManagementPage() {
   
   const systems = [
     {
+      id: "SYS-001",
       title: "School ERP",
       slug: "school",
-      description: "A comprehensive platform for student enrollment, faculty management, and automated grading systems.",
-      icon: <FaSchool className="text-blue-400" />,
+      description: "Unified academic orchestration. Handles student enrollment lifecycles, faculty allocation, and automated grading heuristics.",
       features: ["Student Portal", "Attendance Tracking", "Fee Management"],
       status: "Operational",
-      accent: "border-blue-500/20"
+      metrics: "99.9% Uptime",
+      isReady: false // Track if the page is done
     },
     {
+      id: "SYS-002",
       title: "Hospital HMS",
       slug: "hospital",
-      description: "Advanced healthcare administration featuring digital patient records and doctor-patient scheduling.",
-      icon: <FaHospital className="text-rose-400" />,
+      description: "Mission-critical healthcare administration. Features EMR integration, doctor-patient scheduling, and pharmacy telemetry.",
       features: ["EMR Integration", "Appointment Engine", "Pharmacy Inventory"],
-      status: "In Development",
-      accent: "border-rose-500/20"
+      status: "Development",
+      metrics: "Beta v2.4",
+      isReady: false
     },
     {
+      id: "SYS-003",
       title: "Restaurant POS",
       slug: "restaurant",
-      description: "Real-time hospitality management with digital menu synchronization and kitchen order analytics.",
-      icon: <FaUtensils className="text-orange-400" />,
+      description: "Real-time hospitality synchronization. Digital menu state management and kitchen order analytics for high-volume environments.",
       features: ["Live Order Sync", "Table Management", "Revenue Analytics"],
-      status: "Beta Testing",
-      accent: "border-orange-500/20"
+      status: "Testing",
+      metrics: "Latency: 42ms",
+      isReady: false
     }
   ];
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <main className="relative min-h-screen bg-[#0B121E] text-slate-400 overflow-hidden selection:bg-indigo-500/40">
+      
+      {/* ATMOSPHERIC BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-600/10 rounded-full blur-[160px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-10 pt-48 pb-32">
         
-        {/* Page Header */}
-        <header className="mb-16">
-          <div className="flex items-center gap-3 text-emerald-500 font-bold text-xs uppercase tracking-widest mb-4">
-            <FaServer /> System Registry
+        {/* HEADER SECTION */}
+        <header className="mb-24 border-l border-indigo-500/30 pl-10">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-[9px] font-black text-indigo-500 uppercase tracking-[0.6em]">Protocol 02 // Registry</span>
+            <div className="h-[1px] w-20 bg-white/10"></div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6">
-            Management <span className="text-zinc-500 italic">Central</span>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8 uppercase leading-none">
+            Management <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-indigo-300">Central.</span>
           </h1>
-          <p className="text-zinc-400 text-lg max-w-3xl leading-relaxed">
-            Access and manage multi-tenant architectures. Each system below is architected with a 
-            centralized **Flask API** and high-availability **PostgreSQL** clusters.
+          <p className="text-slate-400 text-lg max-w-2xl font-medium leading-relaxed uppercase text-[12px] tracking-widest">
+            Multi-tenant architecture registry. Orchestrated via centralized <span className="text-white">Flask API</span> nodes and <span className="text-white">PostgreSQL 16</span> clusters.
           </p>
         </header>
 
-        {/* Systems Grid */}
-        <div className="grid grid-cols-1 gap-8">
+        {/* SYSTEMS LISTING */}
+        <div className="grid grid-cols-1 gap-6">
           {systems.map((system) => (
             <div 
               key={system.slug} 
-              className={`group relative overflow-hidden bg-zinc-900/40 border ${system.accent} rounded-[2rem] p-8 md:p-12 transition-all hover:bg-zinc-900/60`}
+              className="group relative bg-white/[0.02] border border-white/5 rounded-[32px] p-10 md:p-14 overflow-hidden transition-all duration-500 hover:bg-white/[0.04] hover:border-indigo-500/30"
             >
-              <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
+              <div className="relative z-10 flex flex-col md:flex-row justify-between gap-12">
                 
-                {/* Visual Icon Section */}
-                <div className="shrink-0 w-20 h-20 rounded-3xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-3xl shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                  {system.icon}
-                </div>
-
-                {/* Content Section */}
+                {/* Left: Identity */}
                 <div className="flex-grow">
-                  <div className="flex items-center gap-4 mb-3">
-                    <h2 className="text-3xl font-bold tracking-tight">{system.title}</h2>
-                    <span className="px-3 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-[10px] font-black text-zinc-500 uppercase tracking-widest">
-                      {system.status}
+                  <div className="flex items-center gap-6 mb-8">
+                    <span className="text-[10px] font-black text-indigo-500 font-mono tracking-widest bg-indigo-500/10 px-3 py-1 rounded">
+                      {system.id}
+                    </span>
+                    <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">
+                      Status: {system.status}
                     </span>
                   </div>
-                  <p className="text-zinc-400 mb-6 max-w-2xl">{system.description}</p>
                   
-                  {/* Feature Pills */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter group-hover:text-indigo-300 transition-colors">
+                    {system.title}
+                  </h2>
+                  <p className="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed font-medium">
+                    {system.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
                     {system.features.map((feature) => (
-                      <span key={feature} className="text-[10px] font-bold px-3 py-1 bg-zinc-900 text-zinc-500 rounded-lg border border-zinc-800 uppercase tracking-tighter">
+                      <span key={feature} className="text-[9px] font-black px-4 py-2 bg-white/5 text-slate-500 rounded-full border border-white/5 uppercase tracking-widest group-hover:border-indigo-500/20 group-hover:text-slate-300 transition-all">
                         {feature}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  <Link 
-                    href={`/web/${system.slug}`}
-                    className="inline-flex items-center gap-3 px-8 py-3 bg-white text-black rounded-xl font-black uppercase text-xs hover:bg-emerald-500 hover:text-white transition-all group/btn shadow-xl"
-                  >
-                    Enter Management Interface 
-                    <FaArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
-                  </Link>
+                {/* Right: Actions & Metrics */}
+                <div className="flex flex-col justify-between items-start md:items-end shrink-0 border-t md:border-t-0 md:border-l border-white/5 pt-10 md:pt-0 md:pl-16">
+                  <div className="text-left md:text-right mb-12">
+                    <p className="text-[9px] font-black text-slate-600 uppercase tracking-[0.5em] mb-2">Live Metrics</p>
+                    <p className="text-white font-bold tracking-widest uppercase">{system.metrics}</p>
+                  </div>
+
+                  {system.isReady ? (
+                    <Link 
+                      href={`/web/${system.slug}`}
+                      className="inline-flex items-center px-10 py-5 bg-white text-[#0B121E] rounded-full font-black uppercase text-[10px] tracking-[0.4em] hover:bg-indigo-500 hover:text-white transition-all shadow-2xl active:scale-95"
+                    >
+                      Enter Interface
+                    </Link>
+                  ) : (
+                    <div className="inline-flex items-center px-10 py-5 bg-white/5 text-slate-600 rounded-full font-black uppercase text-[10px] tracking-[0.4em] border border-white/5 cursor-not-allowed">
+                      <span className="w-2 h-2 bg-slate-700 rounded-full mr-3 animate-pulse"></span>
+                      Coming Shortly
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Decorative Background Icon */}
-              <div className="absolute -bottom-10 -right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-[12rem] rotate-12 pointer-events-none">
-                {system.icon}
+              {/* Subtle background text */}
+              <div className="absolute top-1/2 -right-10 -translate-y-1/2 text-[140px] font-black text-white/[0.01] select-none pointer-events-none uppercase italic">
+                {system.slug}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Security / Backend Note */}
-        <footer className="mt-20 flex flex-col md:flex-row items-center justify-between p-10 rounded-3xl bg-emerald-500/5 border border-emerald-500/10 gap-8">
-          <div className="flex items-center gap-6">
-            <div className="p-4 rounded-2xl bg-zinc-900 text-emerald-500">
-              <FaShieldAlt size={30} />
+        {/* SECURITY FOOTER */}
+        <footer className="mt-32 p-12 bg-indigo-500/[0.03] border border-indigo-500/10 rounded-[48px] flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="flex items-center gap-8">
+            <div className="w-16 h-16 rounded-2xl bg-[#0B121E] border border-indigo-500/20 flex items-center justify-center">
+              <div className="w-2 h-2 bg-indigo-500 animate-pulse rounded-full"></div>
             </div>
             <div>
-              <h4 className="font-bold text-xl uppercase tracking-tighter">Enterprise Security</h4>
-              <p className="text-zinc-500 text-sm">All management portals are protected by JWT authentication and SSL encryption.</p>
+              <h4 className="text-white font-black uppercase tracking-tighter text-xl">Core Shield Encryption</h4>
+              <p className="text-slate-500 text-xs font-black uppercase tracking-widest mt-1">JWT Auth // SSL v3 // AES-256</p>
             </div>
           </div>
-          <div className="flex gap-4">
-            <div className="flex flex-col items-center">
-              <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-1">Database</span>
-              <div className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg font-mono text-xs text-blue-400 font-bold uppercase tracking-tighter">Postgres 16</div>
+          
+          <div className="flex gap-8">
+            <div className="text-center">
+              <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">Primary DB</span>
+              <div className="mt-2 text-indigo-400 font-bold tracking-widest text-xs uppercase">Postgres 16</div>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-1">API Layer</span>
-              <div className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg font-mono text-xs text-emerald-400 font-bold uppercase tracking-tighter">Flask 3.0</div>
+            <div className="w-[1px] h-10 bg-white/10"></div>
+            <div className="text-center">
+              <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em]">Engine</span>
+              <div className="mt-2 text-indigo-400 font-bold tracking-widest text-xs uppercase">Flask 3.0</div>
             </div>
           </div>
         </footer>
