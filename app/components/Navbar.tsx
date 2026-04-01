@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* LOGO: Vault.sys */}
         <Link href="/" className="mix-blend-lighten group z-[110]">
           <span className="text-white font-black tracking-tighter text-2xl uppercase">
-            Vault<span className="text-indigo-400/50 italic font-light lowercase group-hover:text-indigo-400 transition-colors duration-300">.sys</span>
+            DevStack<span className="text-indigo-400/50 italic font-light lowercase group-hover:text-indigo-400 transition-colors duration-300">.sys</span>
           </span>
         </Link>
 
